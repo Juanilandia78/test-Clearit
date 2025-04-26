@@ -67,11 +67,42 @@ docker exec -it laravel_app php artisan key:generate
 docker exec -it laravel_app php artisan migrate
 ```
 
+Additional Setup Steps
+
+**Storage Link**
+After generating the app key, create the symbolic link for Laravel storage:
+
+```bash
+docker exec -it laravel_app  php artisan storage:link
+```
+*This is necessary for the application to serve files (such as profile images or attachments) stored in storage/app/public.*
+
+
+**Fixing Styles in Docker Container**
+If styles are not loading correctly inside the Docker container, it might be because npm is not installed. To fix it:
+
+Install npm inside the container (only once):
+
+```bash
+docker exec -it laravel_app sh
+```
+
+```bash
+apk add npm
+```
+Then run the build process:
+
+```bash
+npm install && npm run build
+```
+This will compile TailwindCSS or any other frontend assets, depending on your configuration.
+
+
 ---
 
 ## 🌐 Access URLs
 
-- Laravel app: [http://localhost:8000](http://localhost:8000)
+- Laravel app: [http://localhost](http://localhost:80)
 - phpMyAdmin: [http://localhost:8080](http://localhost:8080)  
   (User: `root` / Password: `root` or `laravel` if you log in as user)
 
@@ -79,7 +110,7 @@ docker exec -it laravel_app php artisan migrate
 
 ## 📌 Notes
 
-- Make sure ports **8000** and **8080** are open on your local machine.
+- Make sure ports **80** and **8080** are open on your local machine.
 - The MySQL data is persisted in the `db/` directory (bind-mounted volume).
 - Do **not** commit the `.env` file or `db/` folder to the repository.
 
