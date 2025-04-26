@@ -102,15 +102,15 @@ This will compile TailwindCSS or any other frontend assets, depending on your co
 
 ## 🌐 Access URLs
 
-- Laravel app: [http://localhost](http://localhost:80)
-- phpMyAdmin: [http://localhost:8080](http://localhost:8080)  
+- Laravel app: [http://localhost](http://localhost:3000)
+- phpMyAdmin: [http://localhost:8080](http://localhost:3002)  
   (User: `root` / Password: `root` or `laravel` if you log in as user)
 
 ---
 
 ## 📌 Notes
 
-- Make sure ports **80** and **8080** are open on your local machine.
+- Make sure ports **3000** and **3002** are open on your local machine.
 - The MySQL data is persisted in the `db/` directory (bind-mounted volume).
 - Do **not** commit the `.env` file or `db/` folder to the repository.
 
