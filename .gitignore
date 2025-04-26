@@ -1,0 +1,12 @@
+/vendor
+/node_modules
+.env
+/storage/*.key
+/public/storage
+/database/*.sqlite
+/storage/logs
+/storage/framework
+.idea
+.vscode
+.DS_Store
+db/
