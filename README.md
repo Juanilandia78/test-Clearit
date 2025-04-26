@@ -114,6 +114,17 @@ docker exec -it laravel_app npm install && npm run build
 - phpMyAdmin: [http://localhost:3002](http://localhost:3002)  
   (User: `root` / Password: `root` or `laravel` if you log in as user)
 
+LOGIN:
+User Access:
+
+Email: user@example.com
+Password: password
+
+Agent Access:
+
+Email: agent@example.com
+Password: password
+
 ---
 
 ## 📌 Notes
