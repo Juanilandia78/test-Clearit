@@ -1,6 +1,9 @@
 # Laravel Docker Project - Clearit Test
 
-This project is a Laravel application running with Docker using MySQL, Nginx, and phpMyAdmin. It is structured for local development and testing.
+This project is a Laravel application running with Docker using MySQL, Nginx, and phpMyAdmin.
+
+**Ticket Management System**
+A complete Laravel-based ticket management system designed to connect users and agents efficiently, featuring authentication, ticket workflows, documentation exchange, and basic notifications.
 
 ---
 
@@ -8,6 +11,8 @@ This project is a Laravel application running with Docker using MySQL, Nginx, an
 
 - Docker
 - Docker Compose
+- Git
+- GitHub account (to clone the repository)
 
 ---
 
@@ -69,6 +74,12 @@ docker exec -it laravel_app php artisan migrate
 
 Additional Setup Steps
 
+**Populate the database with test data:**
+
+```bash
+docker exec -it laravel_app php artisan db:seed
+```
+
 **Storage Link**
 After generating the app key, create the symbolic link for Laravel storage:
 
@@ -78,24 +89,21 @@ docker exec -it laravel_app  php artisan storage:link
 *This is necessary for the application to serve files (such as profile images or attachments) stored in storage/app/public.*
 
 
-**Fixing Styles in Docker Container**
-If styles are not loading correctly inside the Docker container, it might be because npm is not installed. To fix it:
-
-Install npm inside the container (only once):
+**If there are permission errors:**
 
 ```bash
-docker exec -it laravel_app sh
+docker exec -it laravel_app sh -c "chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache && chmod -R 775 /var/www/storage"
 ```
 
-```bash
-apk add npm
-```
-Then run the build process:
 
+## Frontend Assets (Vite)
+
+If you see style errors or "Vite manifest not found":
+
+1. Build assets (production):
 ```bash
-npm install && npm run build
-```
-This will compile TailwindCSS or any other frontend assets, depending on your configuration.
+docker exec -it laravel_app npm install && npm run build
+
 
 
 ---
@@ -116,6 +124,17 @@ This will compile TailwindCSS or any other frontend assets, depending on your co
 
 ---
 
+## Features
+
+User and Agent authentication (separate roles).
+
+Ticket management system with multiple attributes and status tracking.
+
+Secure document exchange within tickets.
+
+Basic notification system for ticket updates.
+
+
 ## 🛑 .gitignore Highlights
 
 Ensure your `.gitignore` includes:
@@ -133,4 +152,4 @@ app/storage/*.key
 
 ---
 
-Let me know if you want to add custom setup commands or extra services like Redis or Mailhog.
+
