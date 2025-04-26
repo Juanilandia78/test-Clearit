@@ -102,8 +102,8 @@ This will compile TailwindCSS or any other frontend assets, depending on your co
 
 ## 🌐 Access URLs
 
-- Laravel app: [http://localhost](http://localhost:3000)
-- phpMyAdmin: [http://localhost:8080](http://localhost:3002)  
+- Laravel app: [http://localhost:3000](http://localhost:3000)
+- phpMyAdmin: [http://localhost:3002](http://localhost:3002)  
   (User: `root` / Password: `root` or `laravel` if you log in as user)
 
 ---
