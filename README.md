@@ -103,7 +103,7 @@ If you see style errors or "Vite manifest not found":
 1. Build assets (production):
 ```bash
 docker exec -it laravel_app npm install && npm run build
-
+```
 
 
 ---
