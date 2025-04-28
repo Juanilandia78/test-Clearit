@@ -100,7 +100,13 @@ docker exec -it laravel_app sh -c "chown -R www-data:www-data /var/www/storage /
 
 If you see style errors or "Vite manifest not found":
 
-1. Build assets (production):
+1. Install npm inside the app container (only needed once):
+
+```bash
+docker exec -it laravel_app apk add --no-cache npm
+```
+
+2. Build assets (production):
 ```bash
 docker exec -it laravel_app npm install && npm run build
 ```
